@@ -9,8 +9,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-@Entity(name = "titulo")
-@Table(name = "titulo")
+@Entity(name = "title")
+@Table(name = "title")
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
