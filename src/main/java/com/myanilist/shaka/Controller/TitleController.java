@@ -15,11 +15,14 @@ public class TitleController {
     @Autowired
     private TitleRepository titleRepository;
 
-
-    @CrossOrigin(origins = "*", allowedHeaders = "*")
+    @GetMapping
+    public List<Title> getTitles(){
+        return titleService.getTitles();
+    }
+    /*@CrossOrigin(origins = "*", allowedHeaders = "*")
     @GetMapping
     public List<TitleResponseDTO> getAllTitles() {
         List<TitleResponseDTO> getTitleList = titleRepository.findAll().stream().map(TitleResponseDTO::new).toList();
         return getTitleList;
-    }
+    }*/
 }
