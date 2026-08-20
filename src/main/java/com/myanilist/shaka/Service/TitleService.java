@@ -19,4 +19,9 @@ public class TitleService {
     public List<Title> getTitles(){
         return repository.findAll();
     }
+
+    //Testando metódo de salvar novo titulo
+    public void saveTitle(Title title){
+        repository.save(title);
+    }
 }

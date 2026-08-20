@@ -27,11 +27,10 @@ public class TitleController {
     public List<TitleResponseDTO> getTitles(){
         return titleService.getTitles().stream().map(TitleResponseDTO::new).toList();
     }
+
+    //testado metodo de salvar novo titulo
+    public void SaveTitle(TitleResponseDTO titleResponseDTO){
+        titleService.saveTitle(titleResponseDTO.toTitle());
+    }
     
-    /*@CrossOrigin(origins = "*", allowedHeaders = "*")
-    @GetMapping
-    public List<TitleResponseDTO> getAllTitles() {
-        List<TitleResponseDTO> getTitleList = titleRepository.findAll().stream().map(TitleResponseDTO::new).toList();
-        return getTitleList;
-    }*/
 }
