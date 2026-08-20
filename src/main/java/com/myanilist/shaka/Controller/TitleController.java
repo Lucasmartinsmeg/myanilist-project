@@ -13,12 +13,15 @@ import com.myanilist.shaka.Service.TitleService;
 @RestController
 public class TitleController {
 
+    //Aqui estou pegando o serviço de título para poder usar no controlador
     private final TitleService titleService;
 
+    //Aqui estou colocando o serviço no construtor do controlador para poder usar ele nos métodos do controlador
     public TitleController(TitleService service) {
         this.titleService = service;
     }
 
+    //Meu @Getmapping agora não fica mais no topo, porque ele está dentro do método que vai retornar a lista de títulos.
     @GetMapping("/titles")
     public List<TitleResponseDTO> getTitles(){
         return titleService.getTitles().stream().map(TitleResponseDTO::new).toList();
