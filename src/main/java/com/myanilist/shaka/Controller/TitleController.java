@@ -8,17 +8,22 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 import com.myanilist.shaka.Repository.TitleRepository;
 import com.myanilist.shaka.ResponseDTO.TitleResponseDTO;
+import com.myanilist.shaka.Service.TitleService;
 
 @RestController
-@RequestMapping("/titles")
 public class TitleController {
-    @Autowired
-    private TitleRepository titleRepository;
 
-    @GetMapping
-    public List<Title> getTitles(){
-        return titleService.getTitles();
+    private final TitleService titleService;
+
+    public TitleController(TitleService service) {
+        this.titleService = service;
     }
+
+    @GetMapping("/titles")
+    public List<TitleResponseDTO> getTitles(){
+        return titleService.getTitles().stream().map(TitleResponseDTO::new).toList();
+    }
+    
     /*@CrossOrigin(origins = "*", allowedHeaders = "*")
     @GetMapping
     public List<TitleResponseDTO> getAllTitles() {
