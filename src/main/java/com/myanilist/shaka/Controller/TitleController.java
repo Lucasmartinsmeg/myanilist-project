@@ -22,7 +22,7 @@ public class TitleController {
     }
 
     //Meu @Getmapping agora não fica mais no topo, porque ele está dentro do método que vai retornar a lista de títulos.
-    @CrossOrigin(origins = "*", allowedHeaders = "*")
+    @CrossOrigin(origins = "*", allowedHeaders = "*") // end point para o front-end acessar a API sem problemas de CORS.
     @GetMapping("/titles")
     public List<TitleResponseDTO> getTitles(){
         return titleService.getTitles().stream().map(TitleResponseDTO::new).toList();
