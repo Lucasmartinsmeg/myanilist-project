@@ -6,9 +6,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
+
+import com.myanilist.shaka.Model.Title;
 import com.myanilist.shaka.Repository.TitleRepository;
 import com.myanilist.shaka.ResponseDTO.TitleResponseDTO;
+import com.myanilist.shaka.RequestDTO.TitleRequestDTO;
 import com.myanilist.shaka.Service.TitleService;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 @RestController
 public class TitleController {
@@ -29,8 +34,10 @@ public class TitleController {
     }
 
     //testado metodo de salvar novo titulo
-    public void SaveTitle(TitleResponseDTO titleResponseDTO){
-        titleService.saveTitle(titleResponseDTO.toTitle());
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
+    @PostMapping("/titles")
+    public void saveTitle(@RequestBody TitleRequestDTO titleRequestDTO){
+        titleService.saveTitle(new Title(titleRequestDTO));
     }
     
 }
