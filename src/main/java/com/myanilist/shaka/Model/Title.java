@@ -24,8 +24,8 @@ public class Title {
     private String image;
 
     public Title(TitleRequestDTO data){
-    this.title = data.title();
-    this.image = data.image();
+        this.title = data.title();
+        this.image = data.image();
     }
 }
 
